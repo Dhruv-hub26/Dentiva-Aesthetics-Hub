@@ -41,7 +41,7 @@ export default function Hero({ onBookClick }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-[95vh] pt-32 pb-20 flex items-center justify-center bg-primary-dark overflow-hidden text-pure-white"
+      className="relative min-h-[95vh] pt-32 pb-12 flex items-center justify-center bg-primary-dark overflow-hidden text-pure-white"
     >
       {/* Decorative gradient overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(175,203,203,0.12),transparent_45%)]" />

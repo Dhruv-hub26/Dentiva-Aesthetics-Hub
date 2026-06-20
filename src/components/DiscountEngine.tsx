@@ -64,11 +64,11 @@ export default function DiscountEngine() {
         </div>
 
         {/* Dynamic Calculator & Plan Breakdown Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full mx-auto">
           
           {/* Plan benefits (Left) */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full text-left">
-            <div className="glassmorphism-card-dark rounded-3xl p-8 border border-pure-white/10 mb-6">
+          <div className="lg:col-span-5 flex flex-col justify-between h-full text-left w-full">
+            <div className="glassmorphism-card-dark rounded-3xl p-6 sm:p-8 border border-pure-white/10 mb-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-mint-aqua/10 flex items-center justify-center text-mint-aqua">
                   <Percent className="w-5 h-5" />
@@ -143,8 +143,8 @@ export default function DiscountEngine() {
           </div>
 
           {/* Interactive Savings Calculator (Right) */}
-          <div className="lg:col-span-7">
-            <div className="glassmorphism-card-dark rounded-3xl p-8 border border-pure-white/10 flex flex-col justify-between text-left h-full">
+          <div className="lg:col-span-7 w-full">
+            <div className="glassmorphism-card-dark rounded-3xl p-6 sm:p-8 border border-pure-white/10 flex flex-col justify-between text-left h-full w-full">
               <div>
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-pure-white/10">
                   <div className="flex items-center gap-2">
@@ -170,7 +170,7 @@ export default function DiscountEngine() {
                       <button
                         key={treatment.id}
                         onClick={() => handleToggle(treatment.id)}
-                        className={`w-full flex items-center justify-between p-4 rounded-xl border transition-custom text-left ${
+                        className={`w-full flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border gap-4 transition-custom text-left ${
                           isSelected
                             ? "bg-mint-aqua/10 border-mint-aqua text-pure-white"
                             : "bg-primary-dark/30 border-pure-white/5 text-graphite-slate hover:border-pure-white/10"
@@ -193,7 +193,7 @@ export default function DiscountEngine() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-6 self-end sm:self-auto">
                           <div className="flex flex-col text-right">
                             <span className="text-[10px] text-graphite-slate/60 uppercase tracking-widest">
                               Standard
@@ -218,7 +218,7 @@ export default function DiscountEngine() {
               </div>
 
               {/* Calculator Summary results */}
-              <div className="bg-primary-dark/50 rounded-2xl p-6 border border-pure-white/5">
+              <div className="bg-primary-dark/50 rounded-2xl p-4 sm:p-6 border border-pure-white/5 w-full">
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 items-center">
                   
                   <div className="flex flex-col">
