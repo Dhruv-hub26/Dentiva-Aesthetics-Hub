@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🦷 Dentiva Aesthetics – Premium Real-World Dental Clinic Hub
+Dentiva Aesthetics is an elite, production-grade web ecosystem engineered for modern luxury dental practices. Moving away from generic layout templates, this platform features a bespoke, hand-crafted user experience that balances cutting-edge frontend architecture with comprehensive business utilities.
 
-## Getting Started
+Every component, custom validation wrapper, and layout grid boundary has been manually structured, optimized, and fine-tuned from the ground up to guarantee a fluid 60fps interaction target.
 
-First, run the development server:
+🎨 Manual Craftsmanship & Engineering Depth
+This project showcases a deliberate effort in custom frontend assembly and structural state isolation:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Bespoke Cinematic Art Direction: The main hero canvas relies on a meticulous integration of conceptual miniature set design coupled with fluid, dynamic ambient radial glow layers—built intentionally to bypass standard template cliché vibes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Hand-Aligned Stacking Layouts: The floating glassmorphic navbar uses fine translucent boundaries and highly rigid stacking keys (z-index: 50) paired with real-time backdrop filtering to completely eliminate text clipping during heavy scrolling phases.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Performance Throttling & Speed: Implemented strict asset priority handling on the main imagery pipelines to drop the First Contentful Paint (FCP) lag down to absolute minimums, creating an incredibly fast runtime response.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+💎 Advanced Feature Breakdown
+1. Multi-Step Interactive Care Scheduler
+State-Isolated Wizard Engine: An advanced form wizard managing the user intake funnel seamlessly without triggering global DOM re-renders on the master structural layout wrapper.
 
-## Learn More
+Tier Selection & Primitives: Dynamically binds treatment selections (Diagnostics, Prophylaxis, Restorations) directly to modular care tiers (Essential, Aesthetic Pro, Dentiva Signature).
 
-To learn more about Next.js, take a look at the following resources:
+Smart Calendar Matrix: Automatically generates the next 5 active rolling weekdays while filtering out weekend dead zones programmatically to ensure robust booking logic.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Rigid Regional Forms: Fully backed by strict Indian mobile regex patterns (/^(?:\+?91|0)?[6789]\d{9}$/) offering instant client-side string tracking and error boundary feedback.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Live Bento-Grid Specializations Engine
+Structured around a responsive grid highlighting medical services with localized pricing structures.
 
-## Deploy on Vercel
+Wrapped entirely inside fine mechanical micro-animations to catch visual focus without bloating the rendering tree.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Interactive Membership Savings Engine
+A functional savings matrix tool built into the pricing views.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Computes plan metrics and subscription values against standardized consultation fees instantly to incentivize user conversion pipelines.
+
+4. Fully Localized Indian System Context
+Currency Mapping: Complete implementation of Indian National Rupees (₹) globally across all receipts, specials, card arrays, and tier selections.
+
+Demo Safety Vectors: Replaced real data endpoints with generic masked layout sequences (+91 XXXXX XXXXX and regional hub locations) to enforce high safety standards during public deployment reviews.
+
+🛠️ Tech Stack & Architecture
+Framework: Next.js (Modern App Router Architecture)
+
+Language: TypeScript (Strict structural typing for models, actions, and step definitions)
+
+Styling Engine: Tailwind CSS (Modern CSS-first approach utilizing precise color variables like Charcoal Base #202A2C and Mint Aqua highlights)
+
+Animation Hub: Framer Motion (Hardware-accelerated layout transforms using native will-change configurations)
+
+Icon Primitives: Lucide React
+
+🚀 Getting Started & Local Compilation
+Install Package Dependencies:
+
+Bash
+npm install
+
+2. **Boot up the Local Development Workspace:**
+   ```bash
+   npm run dev
+Verify Strict Production Compilations:
+
+npm run build
+
+   *Compiles with zero TypeScript compile warnings or linter exceptions.*# Dentiva-Aesthetics-Hub
