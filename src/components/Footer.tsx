@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(175,203,203,0.05),transparent_40%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-pure-white/10">
-        
+
         {/* Brand Block */}
         <div className="lg:col-span-4 flex flex-col justify-between text-left">
           <div>
@@ -56,20 +56,20 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3.5 text-xs text-graphite-slate font-light">
-            <div className="flex items-center gap-3">
-              <MapPin className="w-4 h-4 text-mint-aqua shrink-0" />
-              <span>82 Aesthetic Blvd, Suite 300, San Francisco, CA 94107</span>
+            <div className="flex items-start gap-3">
+              <MapPin className="w-4 h-4 text-mint-aqua shrink-0 mt-0.5" />
+              <span>Block C, Connaught Place, Near Metro Gate 3, New Delhi, Delhi 110001</span>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-mint-aqua shrink-0" />
-              <a href="tel:+18005550199" className="hover:text-pure-white transition-colors">
-                (800) 555-0199
-              </a>
+              <span className="cursor-default text-graphite-slate select-none">
+                +91 XXXXX XXXXX (Demo Desk)
+              </span>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-mint-aqua shrink-0" />
-              <a href="mailto:desk@dentiva.com" className="hover:text-pure-white transition-colors">
-                desk@dentiva.com
+              <a href="mailto:support@dentiva.in" className="hover:text-pure-white transition-colors">
+                support@dentiva.in
               </a>
             </div>
           </div>

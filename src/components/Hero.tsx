@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowRight, Sparkles, ShieldCheck, Award, Star } from "lucide-react";
 
 interface HeroProps {
@@ -25,7 +25,7 @@ export default function Hero({ onBookClick }: HeroProps) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
     },
   };
 
@@ -38,20 +38,44 @@ export default function Hero({ onBookClick }: HeroProps) {
     },
   };
 
+  // Fixed standard inline structural object definition for strict TypeScript index signature compliance
+  const badgeFloatTop: Variants = {
+    animate: {
+      y: [0, -12, 0],
+      transition: {
+        repeat: Infinity,
+        duration: 5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const badgeFloatBottom: Variants = {
+    animate: {
+      y: [0, 12, 0],
+      transition: {
+        repeat: Infinity,
+        duration: 5,
+        ease: "easeInOut",
+        delay: 0.5,
+      },
+    },
+  };
+
   return (
     <section
       id="home"
       className="relative min-h-[95vh] pt-32 pb-12 flex items-center justify-center bg-primary-dark overflow-hidden text-pure-white"
     >
-      {/* Decorative gradient overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(175,203,203,0.12),transparent_45%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(130,140,141,0.08),transparent_50%)]" />
+      {/* Dynamic ambient radial gradients for seamless background blending */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(175,203,203,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(130,140,141,0.1),transparent_50%)]" />
 
-      {/* Animated subtle grid pattern */}
+      {/* Subtle background grid alignment lines */}
       <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#828C8D_1px,transparent_1px),linear-gradient(to_bottom,#828C8D_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        {/* Left Text content */}
+        {/* Left Typography Block */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -68,10 +92,10 @@ export default function Hero({ onBookClick }: HeroProps) {
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading leading-[1.08] mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading leading-[1.1] mb-6 relative"
           >
             Sculpting Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-mint-aqua to-pure-white glow-mint">
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-mint-aqua via-pure-white to-mint-aqua bg-[size:200%_auto] animate-pulse">
               Perfect Alignment
             </span>
           </motion.h1>
@@ -91,7 +115,7 @@ export default function Hero({ onBookClick }: HeroProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onBookClick}
-              className="flex items-center justify-center gap-2 bg-mint-aqua text-primary-dark hover:bg-mint-aqua/90 px-8 py-4 rounded-xl text-base font-bold tracking-wide transition-all shadow-[0_4px_20px_rgba(175,203,203,0.3)]"
+              className="flex items-center justify-center gap-2 bg-mint-aqua text-primary-dark hover:bg-mint-aqua/90 px-8 py-4 rounded-xl text-base font-bold tracking-wide transition-all shadow-[0_4px_20px_rgba(175,203,203,0.25)]"
             >
               Book Appointment
               <ArrowRight className="w-5 h-5" />
@@ -105,7 +129,7 @@ export default function Hero({ onBookClick }: HeroProps) {
             </a>
           </motion.div>
 
-          {/* Interactive Counter Elements */}
+          {/* Business Conversion Matrix */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-3 gap-6 pt-8 border-t border-pure-white/10"
@@ -139,39 +163,39 @@ export default function Hero({ onBookClick }: HeroProps) {
           </motion.div>
         </motion.div>
 
-        {/* Right 3D Media content */}
-        <div className="lg:col-span-5 relative flex items-center justify-center mt-8 lg:mt-0">
+        {/* Right Media container with optimized depth parameters */}
+        <div className="lg:col-span-5 relative flex items-center justify-center mt-8 lg:mt-0 px-4">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-full aspect-square max-w-[420px] rounded-3xl overflow-hidden glassmorphism-card-dark glow-mint flex items-center justify-center p-6 border border-pure-white/10"
+            className="relative w-full aspect-square max-w-[420px] rounded-3xl p-3 bg-gradient-to-br from-pure-white/10 to-transparent border border-pure-white/10 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center justify-center"
           >
-            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-primary-dark/80 group">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#202A2C] group">
               <Image
-                src="/hero_showcase.png"
-                alt="Dentiva 3D Dental Structure Alignment Mockup"
+                src="/image.png"
+                alt="Dentiva Cinematic Dental Showcase Layout"
                 fill
-                priority
-                sizes="(max-width: 768px) 100vw, 420px"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority={true}
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              
-              {/* Overlay shading for visual depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#202A2C]/60 via-transparent to-transparent pointer-events-none" />
+
+              {/* Radial Vignette layer to seamlessly blend image bounds */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(5,5,7,0.4))]" />
             </div>
 
-            {/* Floating Badge 1 - Interactive Trust Info */}
+            {/* Top Floating Badge - Explicit Type Safe Binding */}
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-4 -left-4 glassmorphism-card-dark py-3 px-4 rounded-2xl flex items-center gap-3 shadow-lg border border-pure-white/10"
+              variants={badgeFloatTop}
+              animate="animate"
+              className="absolute -top-6 -left-6 bg-primary-dark/90 backdrop-blur-md py-3 px-4 rounded-2xl flex items-center gap-3 shadow-2xl border border-pure-white/10 z-20"
             >
-              <div className="w-8 h-8 rounded-lg bg-mint-aqua/10 flex items-center justify-center text-mint-aqua">
+              <div className="w-8 h-8 rounded-lg bg-mint-aqua/10 flex items-center justify-center text-mint-aqua shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
                 <ShieldCheck className="w-4 h-4" />
               </div>
-              <div>
-                <span className="block text-[10px] text-graphite-slate font-bold uppercase tracking-wider">
+              <div className="text-left">
+                <span className="block text-[9px] text-graphite-slate font-bold uppercase tracking-wider">
                   Accreditation
                 </span>
                 <span className="text-xs font-semibold text-pure-white">
@@ -180,17 +204,17 @@ export default function Hero({ onBookClick }: HeroProps) {
               </div>
             </motion.div>
 
-            {/* Floating Badge 2 - Interactive Satisfaction Index */}
+            {/* Bottom Floating Badge - Explicit Type Safe Binding */}
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-4 -right-4 glassmorphism-card-dark py-3 px-4 rounded-2xl flex items-center gap-3 shadow-lg border border-pure-white/10"
+              variants={badgeFloatBottom}
+              animate="animate"
+              className="absolute -bottom-6 -right-6 bg-primary-dark/90 backdrop-blur-md py-3 px-4 rounded-2xl flex items-center gap-3 shadow-2xl border border-pure-white/10 z-20"
             >
-              <div className="w-8 h-8 rounded-lg bg-mint-aqua/10 flex items-center justify-center text-mint-aqua animate-pulse">
+              <div className="w-8 h-8 rounded-lg bg-mint-aqua/10 flex items-center justify-center text-mint-aqua">
                 <Award className="w-4 h-4" />
               </div>
-              <div>
-                <span className="block text-[10px] text-graphite-slate font-bold uppercase tracking-wider">
+              <div className="text-left">
+                <span className="block text-[9px] text-graphite-slate font-bold uppercase tracking-wider">
                   Awards
                 </span>
                 <span className="text-xs font-semibold text-pure-white flex items-center gap-1">

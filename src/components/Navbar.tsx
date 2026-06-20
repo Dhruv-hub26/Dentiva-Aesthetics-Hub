@@ -68,9 +68,8 @@ export default function Navbar({ onBookClick }: NavbarProps) {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#202A2C]/90 backdrop-blur-md border-b border-white/10 ${
-          scrolled ? "py-4 shadow-md" : "py-6"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#202A2C]/90 backdrop-blur-md border-b border-white/10 ${scrolled ? "py-4 shadow-md" : "py-6"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
@@ -97,11 +96,10 @@ export default function Navbar({ onBookClick }: NavbarProps) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative py-2 text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
-                  activeSection === item.id
+                className={`relative py-2 text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer ${activeSection === item.id
                     ? "text-mint-aqua"
                     : "text-graphite-slate hover:text-pure-white"
-                }`}
+                  }`}
               >
                 {item.label}
                 {activeSection === item.id && (
@@ -118,11 +116,11 @@ export default function Navbar({ onBookClick }: NavbarProps) {
           {/* Right Action buttons */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+18005550199"
+              href="tel:+919876543210"
               className="flex items-center gap-2 text-sm font-medium text-graphite-slate hover:text-pure-white transition-colors"
             >
               <Phone className="w-4 h-4 text-mint-aqua" />
-              <span>(800) 555-0199</span>
+              <span>+91 XXXXX XXXXX</span>
             </a>
             <motion.button
               whileHover={{ scale: 1.03 }}
@@ -161,11 +159,10 @@ export default function Navbar({ onBookClick }: NavbarProps) {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-2xl font-semibold tracking-tight py-2 ${
-                    activeSection === item.id
+                  className={`text-left text-2xl font-semibold tracking-tight py-2 ${activeSection === item.id
                       ? "text-mint-aqua"
                       : "text-graphite-slate"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center justify-between">
                     <span>{item.label}</span>
@@ -179,11 +176,11 @@ export default function Navbar({ onBookClick }: NavbarProps) {
 
             <div className="flex flex-col gap-4 border-t border-white/10 pt-6">
               <a
-                href="tel:+18005550199"
+                href="tel:+919876543210"
                 className="flex items-center justify-center gap-3 text-lg font-medium text-graphite-slate py-3 border border-white/10 rounded-xl"
               >
                 <Phone className="w-5 h-5 text-mint-aqua" />
-                <span>Call (800) 555-0199</span>
+                <span>Call +91 98765 43210</span>
               </a>
               <button
                 onClick={() => {

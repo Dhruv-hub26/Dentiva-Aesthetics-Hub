@@ -28,8 +28,8 @@ export default function SpecializationGrid({ onSelectService }: SpecializationGr
       tier: "Essential",
       icon: "Activity",
       treatmentTime: "30-45 mins",
-      cost: "$150",
-      memberCost: "$30",
+      cost: "₹2,499",
+      memberCost: "₹499",
     },
     {
       id: "cleaning",
@@ -40,8 +40,8 @@ export default function SpecializationGrid({ onSelectService }: SpecializationGr
       tier: "Aesthetic Pro",
       icon: "Flame",
       treatmentTime: "60 mins",
-      cost: "$220",
-      memberCost: "$44",
+      cost: "₹4,999",
+      memberCost: "₹999",
     },
     {
       id: "fillings",
@@ -52,8 +52,8 @@ export default function SpecializationGrid({ onSelectService }: SpecializationGr
       tier: "Essential",
       icon: "Shield",
       treatmentTime: "45-75 mins",
-      cost: "$350",
-      memberCost: "$70",
+      cost: "₹2,499",
+      memberCost: "₹499",
     },
     {
       id: "aligners",
@@ -64,8 +64,8 @@ export default function SpecializationGrid({ onSelectService }: SpecializationGr
       tier: "Dentiva Signature",
       icon: "Layers",
       treatmentTime: "Consult + Design",
-      cost: "$3,800",
-      memberCost: "$760",
+      cost: "₹74,999",
+      memberCost: "₹14,999",
     },
   ];
 

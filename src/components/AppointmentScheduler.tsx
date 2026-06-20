@@ -51,7 +51,7 @@ export default function AppointmentScheduler({
     const days = [];
     const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    
+
     let count = 0;
     let index = 1;
     while (count < 5) {
@@ -107,8 +107,11 @@ export default function AppointmentScheduler({
     }
     if (!form.phone.trim()) {
       tempErrors.phone = "Phone number is required.";
-    } else if (!/^\+?[0-9\s-]{8,15}$/.test(form.phone)) {
-      tempErrors.phone = "Invalid phone number.";
+    } else {
+      const cleanPhone = form.phone.replace(/[\s-]/g, "");
+      if (!/^(?:\+?91|0)?[6789]\d{9}$/.test(cleanPhone)) {
+        tempErrors.phone = "Please enter a valid 10-digit Indian phone number (e.g. +91 XXXXX XXXXX).";
+      }
     }
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
@@ -148,7 +151,7 @@ export default function AppointmentScheduler({
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary-dark/85 backdrop-blur-md">
-        
+
         {/* Backdrop close button */}
         <div className="absolute inset-0 cursor-default" onClick={onClose} />
 
@@ -170,7 +173,7 @@ export default function AppointmentScheduler({
               <h3 className="text-xl font-bold tracking-tight text-heading mb-4 text-left">
                 Aesthetic Booking
               </h3>
-              
+
               {/* Step indicator */}
               <div className="space-y-4 mt-8">
                 {[
@@ -181,20 +184,18 @@ export default function AppointmentScheduler({
                 ].map((s) => (
                   <div key={s.num} className="flex items-center gap-3 text-left">
                     <div
-                      className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${
-                        step === s.num
-                          ? "bg-mint-aqua text-primary-dark font-extrabold"
-                          : step > s.num
+                      className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${step === s.num
+                        ? "bg-mint-aqua text-primary-dark font-extrabold"
+                        : step > s.num
                           ? "bg-mint-aqua/30 text-mint-aqua"
                           : "bg-pure-white/10 text-graphite-slate"
-                      }`}
+                        }`}
                     >
                       {step > s.num ? <Check className="w-3.5 h-3.5" /> : s.num}
                     </div>
                     <span
-                      className={`text-xs tracking-wide font-medium ${
-                        step === s.num ? "text-pure-white font-semibold" : "text-graphite-slate"
-                      }`}
+                      className={`text-xs tracking-wide font-medium ${step === s.num ? "text-pure-white font-semibold" : "text-graphite-slate"
+                        }`}
                     >
                       {s.label}
                     </span>
@@ -206,7 +207,7 @@ export default function AppointmentScheduler({
             <div className="relative z-10 text-left pt-8 border-t border-pure-white/10 mt-8 hidden md:block">
               <p className="text-[10px] text-graphite-slate leading-relaxed">
                 Need immediate assistance? <br />
-                <span className="text-mint-aqua font-semibold">Call (800) 555-0199</span>
+                <span className="text-mint-aqua font-semibold">Demo Helpdesk Active</span>
               </p>
             </div>
           </div>
@@ -271,11 +272,10 @@ export default function AppointmentScheduler({
                             key={t.id}
                             type="button"
                             onClick={() => setTier(t.id as any)}
-                            className={`w-full p-4 rounded-xl border text-left transition-all ${
-                              tier === t.id
-                                ? "border-mint-aqua bg-mint-aqua/5 text-primary-dark"
-                                : "border-primary-dark/5 bg-primary-dark/[0.01] text-graphite-slate hover:border-primary-dark/10"
-                            }`}
+                            className={`w-full p-4 rounded-xl border text-left transition-all ${tier === t.id
+                              ? "border-mint-aqua bg-mint-aqua/5 text-primary-dark"
+                              : "border-primary-dark/5 bg-primary-dark/[0.01] text-graphite-slate hover:border-primary-dark/10"
+                              }`}
                           >
                             <div className="flex items-center justify-between mb-1">
                               <span className={`text-sm font-bold ${tier === t.id ? "text-primary-dark" : "text-primary-dark/85"}`}>
@@ -318,11 +318,10 @@ export default function AppointmentScheduler({
                               key={d.fullDateStr}
                               type="button"
                               onClick={() => setSelectedDate(d.fullDateStr)}
-                              className={`py-3 px-1 rounded-xl border flex flex-col items-center justify-center transition-all ${
-                                isSelected
-                                  ? "border-mint-aqua bg-mint-aqua/10 text-primary-dark font-semibold shadow-sm"
-                                  : "border-primary-dark/5 bg-primary-dark/[0.01] text-graphite-slate hover:border-primary-dark/10"
-                              }`}
+                              className={`py-3 px-1 rounded-xl border flex flex-col items-center justify-center transition-all ${isSelected
+                                ? "border-mint-aqua bg-mint-aqua/10 text-primary-dark font-semibold shadow-sm"
+                                : "border-primary-dark/5 bg-primary-dark/[0.01] text-graphite-slate hover:border-primary-dark/10"
+                                }`}
                             >
                               <span className="text-[9px] uppercase tracking-wider text-graphite-slate mb-0.5">
                                 {d.dayOfWeek}
@@ -352,11 +351,10 @@ export default function AppointmentScheduler({
                               key={t}
                               type="button"
                               onClick={() => setSelectedSlot(t)}
-                              className={`py-3.5 rounded-xl border text-xs font-semibold tracking-wide flex items-center justify-center gap-1.5 transition-all ${
-                                isSelected
-                                  ? "border-mint-aqua bg-mint-aqua/10 text-primary-dark font-bold shadow-sm"
-                                  : "border-primary-dark/5 bg-primary-dark/[0.01] text-graphite-slate hover:border-primary-dark/10"
-                              }`}
+                              className={`py-3.5 rounded-xl border text-xs font-semibold tracking-wide flex items-center justify-center gap-1.5 transition-all ${isSelected
+                                ? "border-mint-aqua bg-mint-aqua/10 text-primary-dark font-bold shadow-sm"
+                                : "border-primary-dark/5 bg-primary-dark/[0.01] text-graphite-slate hover:border-primary-dark/10"
+                                }`}
                             >
                               <Clock className="w-3.5 h-3.5 opacity-75" />
                               <span>{t}</span>
@@ -387,10 +385,9 @@ export default function AppointmentScheduler({
                           name="name"
                           value={form.name}
                           onChange={handleInputChange}
-                          placeholder="Dr. Alexander Wright"
-                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm bg-primary-dark/[0.01] focus:outline-none focus:border-mint-aqua ${
-                            errors.name ? "border-red-500 bg-red-50/10" : "border-primary-dark/10"
-                          }`}
+                          placeholder="e.g., Aarav Sharma"
+                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm bg-primary-dark/[0.01] focus:outline-none focus:border-mint-aqua ${errors.name ? "border-red-500 bg-red-50/10" : "border-primary-dark/10"
+                            }`}
                         />
                       </div>
                       {errors.name && <span className="text-[10px] text-red-500 mt-1 block">{errors.name}</span>}
@@ -407,10 +404,9 @@ export default function AppointmentScheduler({
                           name="email"
                           value={form.email}
                           onChange={handleInputChange}
-                          placeholder="alexander@design.com"
-                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm bg-primary-dark/[0.01] focus:outline-none focus:border-mint-aqua ${
-                            errors.email ? "border-red-500 bg-red-50/10" : "border-primary-dark/10"
-                          }`}
+                          placeholder="patient@domain.in"
+                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm bg-primary-dark/[0.01] focus:outline-none focus:border-mint-aqua ${errors.email ? "border-red-500 bg-red-50/10" : "border-primary-dark/10"
+                            }`}
                         />
                       </div>
                       {errors.email && <span className="text-[10px] text-red-500 mt-1 block">{errors.email}</span>}
@@ -427,10 +423,9 @@ export default function AppointmentScheduler({
                           name="phone"
                           value={form.phone}
                           onChange={handleInputChange}
-                          placeholder="(555) 019-9941"
-                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm bg-primary-dark/[0.01] focus:outline-none focus:border-mint-aqua ${
-                            errors.phone ? "border-red-500 bg-red-50/10" : "border-primary-dark/10"
-                          }`}
+                          placeholder="+91 XXXXX XXXXX"
+                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm bg-primary-dark/[0.01] focus:outline-none focus:border-mint-aqua ${errors.phone ? "border-red-500 bg-red-50/10" : "border-primary-dark/10"
+                            }`}
                         />
                       </div>
                       {errors.phone && <span className="text-[10px] text-red-500 mt-1 block">{errors.phone}</span>}
@@ -518,11 +513,10 @@ export default function AppointmentScheduler({
                 <button
                   onClick={handleBack}
                   disabled={step === 1}
-                  className={`flex items-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-lg border transition-all ${
-                    step === 1
-                      ? "text-graphite-slate/40 border-transparent cursor-not-allowed"
-                      : "text-primary-dark border-primary-dark/10 hover:bg-primary-dark/5"
-                  }`}
+                  className={`flex items-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-lg border transition-all ${step === 1
+                    ? "text-graphite-slate/40 border-transparent cursor-not-allowed"
+                    : "text-primary-dark border-primary-dark/10 hover:bg-primary-dark/5"
+                    }`}
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Back

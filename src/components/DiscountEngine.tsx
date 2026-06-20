@@ -15,10 +15,10 @@ export default function DiscountEngine() {
   const [isYearly, setIsYearly] = useState(true);
 
   const treatments: TreatmentItem[] = [
-    { id: "consultation", name: "Premium Diagnostic & Scan", standardPrice: 150, memberPrice: 30 },
-    { id: "cleaning", name: "Ultrasonic Prophylaxis Cleaning", standardPrice: 220, memberPrice: 44 },
-    { id: "filling", name: "Bio-Composite Ceramic Filling", standardPrice: 350, memberPrice: 70 },
-    { id: "aligners", name: "Digital Orthodontics Consultation & Trays", standardPrice: 3800, memberPrice: 760 },
+    { id: "consultation", name: "Premium Diagnostic & Scan", standardPrice: 2499, memberPrice: 499 },
+    { id: "cleaning", name: "Ultrasonic Prophylaxis Cleaning", standardPrice: 4999, memberPrice: 999 },
+    { id: "filling", name: "Bio-Composite Ceramic Filling", standardPrice: 2499, memberPrice: 499 },
+    { id: "aligners", name: "Digital Orthodontics Consultation & Trays", standardPrice: 74999, memberPrice: 14999 },
   ];
 
   const handleToggle = (id: string) => {
@@ -38,7 +38,7 @@ export default function DiscountEngine() {
     .filter((item) => selectedItems.includes(item.id))
     .reduce((sum, item) => sum + item.memberPrice, 0);
 
-  const subscriptionCost = isYearly ? 19 * 12 : 25 * 12; // annualized representation
+  const subscriptionCost = isYearly ? 1199 * 12 : 1499 * 12; // annualized representation
   const totalSavings = Math.max(0, standardTotal - memberTotal - subscriptionCost);
 
   return (
@@ -85,7 +85,7 @@ export default function DiscountEngine() {
 
               {/* Pricing Subscription display */}
               <div className="flex items-baseline gap-2 mb-8">
-                <span className="text-5xl font-bold text-heading text-mint-aqua">$19</span>
+                <span className="text-5xl font-bold text-heading text-mint-aqua">₹1,199</span>
                 <span className="text-sm text-graphite-slate">/ month (billed annually)</span>
               </div>
 
@@ -128,7 +128,7 @@ export default function DiscountEngine() {
                     isYearly ? "bg-mint-aqua text-primary-dark font-bold" : "text-graphite-slate hover:text-pure-white"
                   }`}
                 >
-                  Yearly ($19/mo)
+                  Yearly (₹1,199/mo)
                 </button>
                 <button
                   onClick={() => setIsYearly(false)}
@@ -136,7 +136,7 @@ export default function DiscountEngine() {
                     !isYearly ? "bg-mint-aqua text-primary-dark font-bold" : "text-graphite-slate hover:text-pure-white"
                   }`}
                 >
-                  Monthly ($25/mo)
+                  Monthly (₹1,499/mo)
                 </button>
               </div>
             </div>
@@ -199,7 +199,7 @@ export default function DiscountEngine() {
                               Standard
                             </span>
                             <span className="text-xs line-through text-graphite-slate/70 font-medium">
-                              ${treatment.standardPrice}
+                              ₹{treatment.standardPrice}
                             </span>
                           </div>
                           <div className="flex flex-col text-right">
@@ -207,7 +207,7 @@ export default function DiscountEngine() {
                               Member
                             </span>
                             <span className="text-sm font-bold text-mint-aqua">
-                              ${treatment.memberPrice}
+                              ₹{treatment.memberPrice}
                             </span>
                           </div>
                         </div>
@@ -226,7 +226,7 @@ export default function DiscountEngine() {
                       Standard Cost
                     </span>
                     <span className="text-xl font-bold text-pure-white">
-                      ${standardTotal}
+                      ₹{standardTotal}
                     </span>
                   </div>
 
@@ -235,7 +235,7 @@ export default function DiscountEngine() {
                       Member Cost
                     </span>
                     <span className="text-xl font-bold text-pure-white">
-                      ${memberTotal}
+                      ₹{memberTotal}
                     </span>
                   </div>
 
@@ -244,7 +244,7 @@ export default function DiscountEngine() {
                       Plan Subscription
                     </span>
                     <span className="text-xl font-bold text-pure-white">
-                      ${subscriptionCost}
+                      ₹{subscriptionCost}
                     </span>
                   </div>
 
@@ -253,7 +253,7 @@ export default function DiscountEngine() {
                       Your Savings
                     </span>
                     <span className="text-2xl font-black text-mint-aqua text-heading mt-0.5">
-                      ${totalSavings}
+                      ₹{totalSavings}
                     </span>
                   </div>
 
